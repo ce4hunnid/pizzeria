@@ -24,5 +24,7 @@ urlpatterns = [
     #the second argument specifies the function name to call in views.py
     #third argumen provides the name 'index' for this URL pattern to refer to later
     path('',views.index, name='index'),
-    path('pizzas', view.pizzas, name='pizzas'),
+    path('pizzas', views.pizzas, name='pizzas'),
+    path('pizzas/<int:pizza_id>/',views.pizza,name='pizza'),
+    path('new_pizza/', views.new_pizza, name='new_pizza'),
 ]
