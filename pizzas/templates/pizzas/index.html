@@ -1,7 +1,15 @@
 {% extends "pizzas/base.html" %} 
 
-{% block content %} 
-
-<p>Build and order your own pizza HERE!</p>
-
-{% endblock content %} 
+{% block page_header %} 
+<div class="jumbotron">
+    <h1 class="display-3">Create and order your own pizza here!</h1>
+    <p class="lead">Step 1: Select your pizza style and add toppings.
+        <br>
+        Step 2: Leave a comment!
+    </p>
+</div> 
+<P>
+    <a class="btn btn-lg btn-primary" href="{% url 'users:register' %}"
+        role="button">Click here to join rewards club! &raquo;</a>
+</P>
+{% endblock page_header %}
