@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'users',
 
     #Third party apps
+    'bootstrap4',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
