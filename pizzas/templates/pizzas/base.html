@@ -14,7 +14,7 @@
 <body>
     <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border">
 
-    <a class="navbar-brand" href="{5 url 'pizzas:index' %}">Christopher's Pizzeria</a>
+    <a class="navbar-brand" href="{% url 'pizzas:index' %}">Christopher's Pizzeria</a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse"
     data-target="#navbarCollapse" aria-controls="navbarCollapse"
@@ -47,7 +47,7 @@
 
         </nav>
 
-        <main role="main" class"container">
+        <main role="main" class="container">
             <div class="pb-2 mb-2 border-bottom">
                 {% block page_header %}{% endblock page_header %} 
             </div>
