@@ -11,7 +11,7 @@ def index(request):
 
 @login_required
 def pizzas(request):
-    pizzas = Pizza.objects.filter(owner=request.user).order_by('date_added')
+    pizzas = Pizza.objects.filter(owner=request.user).order_by('date')
     context = {'pizzas':pizzas}
     return render(request, 'pizzas/pizzas.html',context)
 
@@ -19,8 +19,7 @@ def pizzas(request):
 @login_required
 def pizza(request, pizza_id):
     pizza=Pizza.objects.get(id=pizza_id)
-    if pizza.owner != request.user:
-        raise Http404
+    
     toppings = pizza.topping_set.order_by('-date_added') #descending order
     #comments = pizza.comment_set.order_by('-date_added')
 
