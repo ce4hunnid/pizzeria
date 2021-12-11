@@ -1,7 +1,7 @@
 {% extends "pizzas/base.html" %} 
 {% block content %} 
 
-<p><a href="{% url 'pizzas:pizza' pizza.id %}">{{ pizza }}</a></p>>
+<p><a href="{% url 'pizzas:pizza' pizza.id %}">{{ pizza }}</a></p>
 <p>Add a comment reviewing this:</p>
 <form action="{% url 'pizzas:new_comment' pizza.id %}" method='post'>
     {% csrf_token %} 

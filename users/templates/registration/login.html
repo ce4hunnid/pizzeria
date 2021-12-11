@@ -1,5 +1,5 @@
 {% extends "pizzas/base.html" %} 
-{% load bootrstrap4 %} 
+{% load bootstrap4 %} 
 
 {% block page_header %}
     <h2>Log in to your account</h2>
@@ -12,7 +12,7 @@
     {% buttons %}
         <button name="submit" class="btn btn-primary">Log in</button>
     {% endbuttons %} 
-    
+
     <input type = "hidden" name = "next"
     value="{% url 'pizzas:index' %}" />
 </form>

@@ -9,21 +9,21 @@ def index(request):
     #The home page for the pizzeria
     return render(request, 'pizzas/index.html')
 
-@login_required
+#@login_required
 def pizzas(request):
     pizzas = Pizza.objects.filter(owner=request.user).order_by('date')
     context = {'pizzas':pizzas}
     return render(request, 'pizzas/pizzas.html',context)
 
 
-@login_required
+#@login_required
 def pizza(request, pizza_id):
     pizza=Pizza.objects.get(id=pizza_id)
     
     toppings = pizza.topping_set.order_by('-date_added') #descending order
-    #comments = pizza.comment_set.order_by('-date_added')
+    comments = pizza.comment_set.order_by('-date_added')
 
-    context = {'pizza': pizza, 'toppings': toppings}#, 'comments': comments}
+    context = {'pizza': pizza, 'toppings': toppings, 'comments': comments}
     return render(request, 'pizzas/pizza.html', context)
 
 
@@ -41,7 +41,7 @@ def new_pizza(request):
 
     context = {'form':form}
     return render(request, 'pizzas/new_pizza.html', context)
-@login_required
+#@login_required
 def new_topping(request, pizza_id):
     pizza = Pizza.objects.get(id=pizza_id)
 
@@ -54,7 +54,7 @@ def new_topping(request, pizza_id):
 
             new_topping = form.save(commit=False)
             new_topping.pizza = pizza
-            #new_topping.owner = request.user
+            new_topping.owner = request.user
             new_topping.save()
             form.save()
             return redirect('pizzas:pizza', pizza_id = pizza_id)
@@ -62,7 +62,7 @@ def new_topping(request, pizza_id):
     return render(request, 'pizzas/new_topping.html', context)
 
 
-@login_required
+#@login_required
 def edit_topping(request, topping_id):
     topping = Topping.objects.get(id=topping_id)
     pizza = topping.pizza
@@ -84,7 +84,7 @@ def edit_topping(request, topping_id):
     context = {'topping':topping,'pizza':pizza,'form':form}
     return render(request, 'pizzas/edit_topping.html',context)
 
-@login_required
+#@login_required
 def new_comment(request, pizza_id):
     pizza = Pizza.objects.get(id=pizza_id)
 
