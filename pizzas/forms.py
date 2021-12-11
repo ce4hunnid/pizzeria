@@ -1,6 +1,6 @@
 from django import forms
 
-from . models import Pizza, Topping
+from . models import Comment, Pizza, Topping
 
 class PizzaForm(forms.ModelForm):
     class Meta:
@@ -15,3 +15,9 @@ class ToppingForm(forms.ModelForm):
         labels = {'name':''}
 
 #REPEAT SLIDE 2 ON PART V FOR COMMENTS
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ['name']
+        labels = {'name':''}
